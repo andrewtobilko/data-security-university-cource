@@ -6,7 +6,7 @@ package com.tobilko.lab5;
  *
  */
 public enum Alphabet {
-    ENG(25, 65),
+    ENG(26, 65),
     RUS(31, 1040);
 
     private final int SIZE;
