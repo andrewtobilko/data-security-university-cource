@@ -12,9 +12,9 @@ import static java.util.stream.Collectors.joining;
  */
 public class CaesarCipher {
 
-    private final int size;
-    private final int shift;
-    private final int key;
+    protected int size;
+    protected int shift;
+    protected final int key;
 
     public CaesarCipher(Alphabet alphabet, int k) {
         size = alphabet.getSize();
@@ -29,7 +29,7 @@ public class CaesarCipher {
     public String encode(String toEncode) { return xxcode(toEncode, i -> (char)(encode(i - shift) + shift)); }
     public String decode(String toDecode) { return xxcode(toDecode, i -> (char)(decode(i - shift) + shift)); }
 
-    private String xxcode(String s, IntFunction<Character> function) {
+    protected String xxcode(String s, IntFunction<Character> function) {
         return s.trim().contains(" ") ?
                 stream(s.split(" ")).map(st -> xxcodeForOne(st, function)).collect(joining(" ")) :
                 xxcodeForOne(s, function);
@@ -38,7 +38,7 @@ public class CaesarCipher {
         return s.trim().chars().mapToObj(function).map(String::valueOf).collect(joining());
     }
 
-    private int encode(int i) { return ((i + key) % size) - ((i + key) < 0 || (i + key) > size ? size : 0); }
-    private int decode(int i) { return ((i - key) % size) + ((i - key) < 0 || (i - key) > size ? size : 0); }
+    protected int encode(int i) { return ((i + key) % size) - ((i + key) < 0 || (i + key) > size ? size : 0); }
+    protected int decode(int i) { return ((i - key) % size) + ((i - key) < 0 || (i - key) > size ? size : 0); }
 
 }
