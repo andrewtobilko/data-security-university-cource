@@ -3,10 +3,19 @@ package com.tobilko.lab5;
 import org.apache.commons.collections4.BidiMap;
 import org.apache.commons.collections4.bidimap.DualHashBidiMap;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Iterator;
+import java.util.stream.Collectors;
 
+import static java.nio.file.Files.*;
 import static java.nio.file.Files.lines;
+import static java.nio.file.Paths.*;
+import static java.nio.file.Paths.get;
+import static java.util.stream.Collectors.*;
 import static java.util.stream.IntStream.range;
 
 /**
@@ -20,14 +29,6 @@ public class CaesarUtils {
         return range(0, alphabet.getSize() - 1)
                 .mapToObj(i -> new CaesarCipher(alphabet, i).decode(encoded))
                 .toArray(String[]::new);
-    }
-
-    public static BidiMap<Character, Integer> getCustomAlphabetFromFile(String fileName) throws IOException {
-        return lines(Paths.get(fileName))
-                .collect(DualHashBidiMap<Character, Integer>::new, (map, s) -> {
-                    String[] a = s.split(" ");
-                    map.put(a[0].charAt(0), Integer.valueOf(a[1]));
-                }, BidiMap::putAll);
     }
 
 }
