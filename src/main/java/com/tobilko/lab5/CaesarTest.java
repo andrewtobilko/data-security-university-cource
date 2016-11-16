@@ -26,7 +26,7 @@ public class CaesarTest {
             System.out.println(a1.decode(FileUtils.readStringFromFile("input.data")));
 
             // 1.3 : writing a encoded String to a file
-            FileUtils.writeStringToFile("output.data", a1.encode("HELLO WORLD!"));
+            FileUtils.writeStringToFile("output.data", a1.encode("HELLO WORLD"));
 
         // 2 : take over all possible keys to decode a string
         System.out.println(Arrays.toString(takeOverAllPossibleWays(a1.encode("WHEN I COME AROUND"), Alphabet.ENG)));
