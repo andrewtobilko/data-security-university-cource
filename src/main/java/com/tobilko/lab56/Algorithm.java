@@ -1,7 +1,5 @@
 package com.tobilko.lab56;
 
-import com.tobilko.lab6.OffsetStrategy;
-
 import static java.lang.String.valueOf;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.IntStream.range;
@@ -14,17 +12,10 @@ import static java.util.stream.IntStream.range;
 public class Algorithm {
 
     private OffsetStrategy strategy;
-    private String alphabet;
-    private int offset;
+    private final String alphabet = "abcdef";
 
-    public Algorithm(OffsetStrategy strategy, String alphabet) {
+    public Algorithm(OffsetStrategy strategy) {
         this.strategy = strategy;
-        this.alphabet = alphabet;
-    }
-
-    public Algorithm(int offset, String alphabet) {
-        this.alphabet = alphabet;
-        this.offset = offset;
     }
 
     public String execute(String in, boolean direction) {

@@ -1,0 +1,8 @@
+{
+  "encode": true,
+  "method": "L|NL|PH",
+  "key": "AB|ABC|PHRASE",
+
+  "source": "C:\\Users\\Andrew Tobilko\\Desktop\\1.txt",
+  "output": "output.data"
+}
