@@ -1,7 +1,7 @@
 {
   "encode": true,
-  "method": "PHRASE",
-  "key": "hello from the other side",
+  "method": "L",
+  "key": "2 12",
 
   "source": "input.data",
   "output": "output.data"
