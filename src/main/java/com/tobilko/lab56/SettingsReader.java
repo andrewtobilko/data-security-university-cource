@@ -16,7 +16,7 @@ public class SettingsReader {
             String method = json.getString("method");
             return new Settings(
                     json.getBoolean("encode"),
-                    new Method(json.getString("method"), new OfferStrategy(json.getString("key"))),
+                    new OffsetStrategy(json.getString("method"), json.getString("key")),
                     json.getString("source"),
                     json.getString("output")
             );

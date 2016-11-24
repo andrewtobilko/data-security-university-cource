@@ -11,8 +11,8 @@ import static java.util.stream.IntStream.range;
  */
 public class Algorithm {
 
+    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz!?@#$%^&*()-=' []{};:/.1234567890\n";
     private OffsetStrategy strategy;
-    private final String alphabet = "abcdef";
 
     public Algorithm(OffsetStrategy strategy) {
         this.strategy = strategy;
@@ -20,15 +20,15 @@ public class Algorithm {
 
     public String execute(String in, boolean direction) {
         return range(0, in.length())
-               .mapToObj(i -> execute(alphabet.indexOf(in.charAt(i)), direction, i))
-               .map(i -> valueOf(alphabet.charAt(i)))
+               .mapToObj(i -> execute(ALPHABET.indexOf(in.charAt(i)), direction, i))
+               .map(i -> valueOf(ALPHABET.charAt(i)))
                .collect(joining());
     }
 
     private int execute(int i, boolean direction, int pos) {
         int i1 = i + (direction ? 1 : -1) * strategy.calculate(pos);
-        while (i1 < 0) i1 += alphabet.length();
-        return i1 % alphabet.length();
+        while (i1 < 0) i1 += ALPHABET.length();
+        return i1 % ALPHABET.length();
     }
 
 }

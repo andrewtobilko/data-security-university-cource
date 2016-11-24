@@ -12,7 +12,7 @@ public class OffsetStrategy {
     public enum Name {
         L("L"),
         NL("NL"),
-        PHRASE("L");
+        PHRASE("PHRASE");
 
         private String name;
 
@@ -26,29 +26,25 @@ public class OffsetStrategy {
         }
     }
 
-/*    CONSTANT("C", t -> 3),
-    LINEAR("L", t -> 3 * t + 1),
-    NONLINEAR("NL", t -> (int)(8 * Math.pow(t, 2) + 4 * t + 9)),
-    BY_PHRASE("PH", t -> {
-        String s = "jskdfljks dfpsd fjksd flksdjf l;sjf kl;s djf";
-        return (int)s.charAt(t % s.length());
-    });*/
-
-    private final String name;
     private final IntFunction<Integer> function;
 
     public OffsetStrategy(String name, String key) {
         if(name.equals(Name.L.toString())) {
             String[] a = key.split(" ");
             if(a.length == 2) {
-
+                function = k -> Integer.parseInt(a[0]) * k + Integer.parseInt(a[1]);
             } else {
-                throw new IllegalArgumentException("Linear method : error");
+                throw new IllegalArgumentException("Linear method : parse error");
             }
         } else if (name.equals(Name.NL.toString())) {
-
+            String[] a = key.split(" ");
+            if(a.length == 3) {
+                function = k -> (int)(Integer.parseInt(a[0]) * Math.pow(k ,2) + Integer.parseInt(a[1]) * k + Integer.parseInt(a[2]));
+            } else {
+                throw new IllegalArgumentException("Nonlinear method : parse error");
+            }
         } else if (name.equals(Name.PHRASE.toString())) {
-
+            function = t -> (int)(key.charAt(t % key.length()) - 'a');
         } else {
             throw new IllegalArgumentException("There is no method with the given name!");
         }

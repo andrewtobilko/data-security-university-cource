@@ -1,8 +1,8 @@
 {
   "encode": true,
-  "method": "L|NL|PH",
-  "key": "AB|ABC|PHRASE",
+  "method": "PHRASE",
+  "key": "hello from the other side",
 
-  "source": "C:\\Users\\Andrew Tobilko\\Desktop\\1.txt",
+  "source": "input.data",
   "output": "output.data"
 }
