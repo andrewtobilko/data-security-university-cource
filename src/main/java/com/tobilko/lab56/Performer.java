@@ -38,9 +38,12 @@ public class Performer {
     }
 
     public static void main(String[] args) throws IOException {
-
+        if(args.length > 0) {
+            new Performer().perform(args[0]);
+        } else {
+            throw new IllegalArgumentException("Command parameters are invalid!");
+        }
         new Performer().perform("settings.json");
-
     }
 
 }

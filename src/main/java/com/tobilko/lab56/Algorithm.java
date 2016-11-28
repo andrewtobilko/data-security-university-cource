@@ -11,7 +11,7 @@ import static java.util.stream.IntStream.range;
  */
 public class Algorithm {
 
-    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz!?@#$%^&*()-=' []{};:/.1234567890\n";
+    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz!?@#$%^&*()-=' []{};:/.1234567890";
     private OffsetStrategy strategy;
 
     public Algorithm(OffsetStrategy strategy) {
