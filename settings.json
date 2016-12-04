@@ -1,7 +1,7 @@
 {
-  "encode": true,
-  "method": "L",
-  "key": "2 12",
+  "encode": false,
+  "method": "PHRASE",
+  "key": "12 -173 -21",
 
   "source": "input.data",
   "output": "output.data"

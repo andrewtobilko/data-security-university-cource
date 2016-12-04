@@ -1,15 +1,11 @@
 package com.tobilko.lab7;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Random;
-import java.util.stream.Collectors;
 
-import static java.nio.file.Files.*;
-import static java.nio.file.Paths.*;
-import static java.util.stream.Collectors.*;
+import static java.nio.file.Files.lines;
+import static java.nio.file.Paths.get;
+import static java.util.stream.Collectors.joining;
 
 public class GammaCipherMethod {
 
