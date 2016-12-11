@@ -27,7 +27,7 @@ public class GammaCipherMethod {
 
         public Generator(String s, long key) {
             if (s.length() > 2e48) {
-                throw new IllegalArgumentException("Can't create a generator [the string is too long].")
+                throw new IllegalArgumentException("Can't create a generator [the string is too long].");
             }
         }
 
